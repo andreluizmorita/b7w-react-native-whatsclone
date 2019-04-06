@@ -3,10 +3,31 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test": "jest"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "precommit": "NODE_ENV=production lint-staged",
+    "format": "prettier --write \"src/**/*.{js,jsx}\"",
+    "lint": "eslint \"src/**/*.{js,jsx}\" --quiet",
+    "quick": "concurrently \"npm run backend\" \"npm start\"",
+    "cypress": "npx cypress open",
+    "e2e": "concurrently \"npm run quick\" \"npm run cypress\"",
+    "backend": "json-server --watch db.json --routes routes.json --port 8627 --middlewares ./node_modules/json-server-reset",
+    "backend2": "json-server server.json -p 3001 -w -d 500"
+  },
+  "lint-staged": {
+    "*.{js,jsx}": [
+      "pretty-quick --staged",
+      "eslint src/ --fix",
+      "git add"
+    ]
+  },
+  "eslintConfig": {
+    "extends": "react-app"
   },
   "dependencies": {
+    "firebase": "^5.9.3",
     "react": "16.8.3",
     "react-native": "0.59.3",
     "react-native-firebase": "^5.2.3",
@@ -17,7 +38,9 @@
   "devDependencies": {
     "@babel/core": "^7.4.3",
     "@babel/runtime": "^7.4.3",
+    "babel-eslint": "^10.0.1",
     "babel-jest": "^24.7.1",
+    "eslint": "^5.16.0",
     "jest": "^24.7.1",
     "metro-react-native-babel-preset": "^0.53.1",
     "react-test-renderer": "16.8.3"

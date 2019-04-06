@@ -1,0 +1,40 @@
+users
+- 123
+-- name: Bonieky
+-- chats
+--- 1
+---- id: 1
+--- 2
+---- id: 2
+---- unread: 10
+
+chats
+- 001-IDCHAT
+-- members
+--- 123-IDMEMBER
+---- id: 123
+--- 456-IDMEMBER
+---- id: 456
+-- messages
+--- 123-IDMESSAGE
+---- date: 10/10/19
+---- m: "Oi"
+--- 456-IDMESSAGE
+---- date: 11/10/19
+---- m: "Opa, e ai?"
+
+- 001-IDCHAT
+-- members
+--- 123-IDMEMBER
+---- id: 123
+--- 456-IDMEMBER
+---- id: 456
+-- messages
+--- 123-IDMESSAGE
+---- date: 10/10/19
+---- m: "Oi"
+--- 456-IDMESSAGE
+---- date: 11/10/19
+---- m: "Opa, e ai?"
+
+
